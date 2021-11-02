@@ -16,11 +16,17 @@ namespace QuieroPizza.Win
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             var productosBL = new ProductosBL();
             var listadeProductos = productosBL.ObtenerProductos();
 
-            listadeProductosBindingSource.DataSource = listadeProductos;
+            foreach (var producto in listadeProductos)
+            {
+                MessageBox.Show(producto.Descripción);
+            }
         }
-
-      }
+    }
 }
